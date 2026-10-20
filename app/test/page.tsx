@@ -19,6 +19,22 @@ export default function TestPage() {
             <h1>Native Bridge Test</h1>
 
             <button
+                // onClick={() =>
+                //     runCommand("app.alert", {
+                //         title: "Native Alert",
+                //         message: "Hello from Next.js!",
+                //     })
+                // }
+                onClick={async () => {
+                    const user = await NativeBridge.identity.getUser()
+                    console.log("[Web SDK] Native user:", user);
+                    alert(JSON.stringify(user))
+                }}
+            >
+                Get User
+            </button>
+
+            <button
                 onClick={() =>
                     runCommand("app.alert", {
                         title: "Native Alert",
